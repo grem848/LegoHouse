@@ -1,5 +1,3 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,8 +24,8 @@
         }
     </style>
     <body>
-        <h1>Order History</h1>
         <% User user = (User) session.getAttribute("user"); %>
+        <h1>Order History</h1>
         <h2>Hello
             <% out.println(user.getEmail());%>
         </h2>

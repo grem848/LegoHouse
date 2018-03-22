@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Order Page</title>
+        <title>Bill of Materials Page</title>
     </head>
     <style>
         table {
@@ -24,8 +24,8 @@
         }
     </style>
     <body>
-        <h1>Order</h1>
         <% User user = (User) session.getAttribute("user"); %>
+        <h1>Bill of Materials</h1>
         <h2>Hello
             <% out.println(user.getEmail());%>
         </h2>
@@ -86,5 +86,12 @@
             <th><%=request.getAttribute("totalBricks")%></th>
         </tr>
     </table>
-    For order history <a href="FrontController?command=orderlist"> click here </a>
+    <form name="Building" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="order">
+        <input type="submit" value="Submit">
+    </form>
+    <form name="Building" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="products" />
+        <input type="submit" value="Back to Lego House Builder" />
+    </form>
 </html>

@@ -7,14 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
- * The purpose of UserMapper is to...
- *
- * @author kasper
- */
+
 public class UserMapper
 {
 
@@ -66,28 +60,7 @@ public class UserMapper
             throw new LoginSampleException(ex.getMessage());
         }
     }
-        public boolean createOrder()
-    {
-//        try
-//        {
-//            Connection con = Connector.connection();
-//            String SQL = "INSERT INTO Orders (email, password, role) VALUES (?, ?, ?)";
-//            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-//            ps.setString(1, user.getEmail());
-//            ps.setString(2, user.getPassword());
-//            ps.setString(3, user.getRole());
-//            ps.executeUpdate();
-//            ResultSet ids = ps.getGeneratedKeys();
-//            ids.next();
-//            int id = ids.getInt(1);
-//            user.setId(id);
-//        } catch (SQLException | ClassNotFoundException ex)
-//        {
-//            throw new LoginSampleException(ex.getMessage());
-//        }
-
-        return false;
-    }
+    
             //PreparedStatement
 //            String sql = "select * from user where username = ? and password = ?";
 //            PreparedStatement preparedStatement = dbc.preparedStatement(sql);

@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.OrderBuilderException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ abstract class Command
         commands.put("register", new Register());
         commands.put("help", new Help());
         commands.put("products", new Products());
+        commands.put("bom", new BOM());
         commands.put("order", new Order());
         commands.put("orderlist", new Orderlist());
     }
@@ -32,6 +34,6 @@ abstract class Command
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException;
+            throws LoginSampleException, OrderBuilderException;
 
 }

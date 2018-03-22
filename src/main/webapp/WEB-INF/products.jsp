@@ -52,7 +52,7 @@
         </table>
 
         <form name="Building" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="order">
+            <input type="hidden" name="command" value="bom">
             Length:<br>
             <input type="number" name="length" min="4" value="" placeholder="Type Length (dots)" required>
             <br>

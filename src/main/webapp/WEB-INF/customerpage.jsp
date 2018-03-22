@@ -16,6 +16,14 @@
         You are now logged in as a customer of our wonderful site.
         <br>
         <br>
+        <form name="Building" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="products" />
+            <input type="submit" value="Lego House Builder" />
+        </form>
+        <form name="Building" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="orderlist" />
+            <input type="submit" value="Order History" />
+        </form>
         For products <a href="FrontController?command=products"> click here </a>
     </body>
 </html>
