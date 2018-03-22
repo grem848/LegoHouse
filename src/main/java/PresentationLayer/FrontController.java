@@ -6,6 +6,7 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.OrderBuilderException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,10 @@ public class FrontController extends HttpServlet {
         } catch ( LoginSampleException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+        } catch (OrderBuilderException ex)
+        {
+            request.setAttribute( "error", ex.getMessage() );
+            request.getRequestDispatcher( "../products.jsp" ).forward( request, response );
         }
     }
 

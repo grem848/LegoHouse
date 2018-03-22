@@ -3,10 +3,8 @@ package PresentationLayer;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.OrderBOM;
 import FunctionLayer.OrderBuilderException;
-import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 public class Order extends Command
 {
@@ -14,15 +12,15 @@ public class Order extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderBuilderException
     {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+        System.out.println("hej");
         
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
+        boolean sent = false;
         
 
-        OrderBOM orderBOM = LogicFacade.createOrder(user, length, width, height);
+        OrderBOM orderBOM = LogicFacade.createOrder(length, width, height, sent);
       
         request.setAttribute("orderBOM", orderBOM);
         

@@ -1,52 +1,44 @@
-
 package FunctionLayer;
-
 
 public class OrderBOM
 {
-    private int order_id;
-    private int user_id;
+
+    private int id;
     private int length;
     private int width;
     private int height;
+    private boolean sent;
 
-    public OrderBOM(int user_id, int length, int width, int height)
+    public OrderBOM(int length, int width, int height, boolean sent)
     {
-        this.user_id = user_id;
         this.length = length;
         this.width = width;
         this.height = height;
-    }
-
-    public OrderBOM(int order_id, int user_id, int length, int width, int height)
-    {
-        this.order_id = order_id;
-        this.user_id = user_id;
-        this.length = length;
-        this.width = width;
-        this.height = height;
+        this.sent = sent;
     }
     
-    public int getUser_id()
+    
+    public int getId()
     {
-        return user_id;
+        return id;
     }
 
-    public void setUser_id(int user_id)
+    public void setId(int id)
     {
-        this.user_id = user_id;
+        this.id = id;
     }
 
-    public int getOrder_id()
+    public boolean isSent()
     {
-        return order_id;
+        return sent;
     }
 
-    public void setOrder_id(int order_id)
+    public void setSent(boolean sent)
     {
-        this.order_id = order_id;
+        this.sent = sent;
     }
 
+   
     public int getLength()
     {
         return length;
@@ -76,6 +68,5 @@ public class OrderBOM
     {
         this.height = height;
     }
-
 
 }
