@@ -18,15 +18,11 @@ public class UserMapper
         {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getRole());
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            user.setId(id);
         } catch (SQLException | ClassNotFoundException ex)
         {
             throw new LoginSampleException(ex.getMessage());

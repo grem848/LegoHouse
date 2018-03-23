@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="FunctionLayer.OrderBOM"%>
 <%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,25 +26,14 @@
         }
     </style>
     <body>
-        <% User user = (User) session.getAttribute("user"); %>
+        <% 
+            User user = (User) session.getAttribute("user");
+            
+        %>
         <h1>Order History</h1>
         <h2>Hello
             <% out.println(user.getEmail());%>
         </h2>
+            <%=request.getAttribute(("orders").toString())%>
     </body>
-    Length:<br>
-    <%=request.getParameter("length")%> 
-    <br>
-    Width:<br>
-    <%=request.getParameter("width")%>
-    <br>
-    Height:<br>
-    <%=request.getParameter("height")%>
-    <br>
-    Total Dots:<br>
-    <%=request.getAttribute("totalDots")%>
-    <br>
-    <br>
-
-    
 </html>

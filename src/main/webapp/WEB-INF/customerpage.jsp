@@ -25,5 +25,7 @@
             <input type="submit" value="Order History" />
         </form>
         For products <a href="FrontController?command=products"> click here </a>
+        <br>
+        For order history <a href="FrontController?command=orderlist"> click here </a>
     </body>
 </html>

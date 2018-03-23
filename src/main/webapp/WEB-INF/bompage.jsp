@@ -88,7 +88,10 @@
     </table>
     <form name="Building" action="FrontController" method="POST">
         <input type="hidden" name="command" value="order">
-        <input type="submit" value="Submit">
+        <input type="hidden" name="length" value="<%=request.getParameter("length")%>">
+        <input type="hidden" name="width" value="<%=request.getParameter("width")%>">
+        <input type="hidden" name="height" value="<%=request.getParameter("height")%>">
+        <input type="submit" value="Confirm Order">
     </form>
     <form name="Building" action="FrontController" method="POST">
         <input type="hidden" name="command" value="products" />

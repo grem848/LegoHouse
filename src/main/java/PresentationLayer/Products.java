@@ -10,8 +10,6 @@ public class Products extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException
     {
-//        HttpSession session = request.getSession();
-//        session.getAttribute("user");
         return "products";
     }
 

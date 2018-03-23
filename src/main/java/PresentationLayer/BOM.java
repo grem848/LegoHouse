@@ -15,6 +15,10 @@ public class BOM extends Command
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
+        
+//        request.getSession().setAttribute("lengthS", length);
+//        request.getSession().setAttribute("widthS", width);
+//        request.getSession().setAttribute("heightS", height);
 
         int totalDots = ((length * 2) + (width * 2)) * height * 2;
 

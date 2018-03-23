@@ -3,12 +3,32 @@ package FunctionLayer;
 public class OrderBOM
 {
 
+    private int orderid;
     private int id;
     private int length;
     private int width;
     private int height;
     private boolean sent;
 
+    public OrderBOM(int orderid, int id, int length, int width, int height, boolean sent) // get order
+    {
+        this.orderid = orderid;
+        this.id = id;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.sent = sent;
+    }
+
+    public OrderBOM(int id, int length, int width, int height, boolean sent) // create order
+    {
+        this.id = id;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.sent = sent;
+    }
+    
     public OrderBOM(int length, int width, int height, boolean sent)
     {
         this.length = length;
@@ -17,6 +37,15 @@ public class OrderBOM
         this.sent = sent;
     }
     
+    public int getOrderid()
+    {
+        return orderid;
+    }
+
+    public void setOrderid(int orderid)
+    {
+        this.orderid = orderid;
+    }
     
     public int getId()
     {
@@ -69,4 +98,20 @@ public class OrderBOM
         this.height = height;
     }
 
+    @Override
+    public String toString()
+    {
+        String status;
+        if(sent == true)
+        {
+            status = "Shipped";
+        }
+        else
+        {
+            status = "Submitted";
+        }
+        return "[ Order ID: " + orderid + " | Bill of Materials: Length:" + length + ", Width: " + width + ", Height: " + height + " | Status: " + status + " ]";
+    }
+
+    
 }
