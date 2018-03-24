@@ -1,9 +1,6 @@
-<%-- 
-    Document   : customerpage
-    Created on : Aug 22, 2017, 2:33:37 PM
-    Author     : kasper
---%>
 
+
+<%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +9,8 @@
         <title>Customer home page</title>
     </head>
     <body>
-        <h1>Hello <%=request.getParameter("email")%> </h1>
+        <% User user = (User) session.getAttribute("user"); %>
+        <h1>Hello <%=user.getEmail()%> </h1>
         You are now logged in as a customer of our wonderful site.
         <br>
         <br>
@@ -24,8 +22,9 @@
             <input type="hidden" name="command" value="orderlist" />
             <input type="submit" value="Order History" />
         </form>
-        For products <a href="FrontController?command=products"> click here </a>
-        <br>
-        For order history <a href="FrontController?command=orderlist"> click here </a>
+        <form name="Building" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="logout" />
+            <input type="submit" value="Logout" />
+        </form>
     </body>
 </html>

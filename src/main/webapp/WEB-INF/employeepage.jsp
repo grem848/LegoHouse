@@ -4,6 +4,7 @@
     Author     : kasper
 --%>
 
+<%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,19 @@
         <title>Employee home page</title>
     </head>
     <body>
-        
-        <h1>Hello <%=request.getParameter( "email")%> </h1>
+        <% User user = (User) session.getAttribute("user"); %>
+        <h1>Hello <%=user.getEmail()%> </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
-    </body>
+
+
+    </form>
+    <form name="Building" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="employeeOrderList" />
+        <input type="submit" value="Customer Order List" />
+    </form>
+    <form name="Building" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="logout" />
+        <input type="submit" value="Logout" />
+    </form>
+</body>
 </html>

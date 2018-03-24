@@ -32,6 +32,18 @@ public class LogicFacade
         List<OrderBOM> orderList = OrderMapper.getAllUserOrders(user);
         return orderList;
     }
-    
+
+    public static List<OrderBOM> getOrderList() throws OrderBuilderException
+    {
+        List<OrderBOM> allOrders = OrderMapper.getAllOrders();
+
+        return allOrders;
+
+    }
+
+    public static void deliverOrder(int id) throws OrderBuilderException
+    {
+        OrderMapper.sentOrder(id);
+    }
 
 }

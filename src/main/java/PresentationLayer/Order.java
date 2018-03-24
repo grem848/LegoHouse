@@ -1,7 +1,6 @@
 package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
-import FunctionLayer.OrderBOM;
 import FunctionLayer.OrderBuilderException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +27,8 @@ public class Order extends Command
         boolean sent = false;
         
 
-        OrderBOM orderBOM = LogicFacade.createOrder(id, length, width, height, sent);
+        LogicFacade.createOrder(id, length, width, height, sent);
+//        OrderBOM orderBOM = LogicFacade.createOrder(id, length, width, height, sent);
       
 //        request.setAttribute("orderBOM", orderBOM);
         

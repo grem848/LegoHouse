@@ -24,13 +24,13 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-        
+
     </style>
     <body>
         <h1>Lego House Builder</h1>
         <% User user = (User) session.getAttribute("user"); %>
         <h2>Hello
-            <% out.println(user.getEmail());%>
+            <%=user.getEmail()%>
         </h2>
         <table>
             <tr>
@@ -65,6 +65,10 @@
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
         </form>
-        
+        <br>
+        <form name="Building" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="customer" />
+            <input type="submit" value="Back to Customer Page" />
+        </form>
     </body>
 </html>

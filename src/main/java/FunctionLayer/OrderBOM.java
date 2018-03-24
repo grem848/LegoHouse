@@ -104,11 +104,11 @@ public class OrderBOM
         String status;
         if(sent == true)
         {
-            status = "Shipped";
+            status = "Sent";
         }
         else
         {
-            status = "Submitted";
+            status = "Pending";
         }
         return "[ Order ID: " + orderid + " | Bill of Materials: Length:" + length + ", Width: " + width + ", Height: " + height + " | Status: " + status + " ]";
     }

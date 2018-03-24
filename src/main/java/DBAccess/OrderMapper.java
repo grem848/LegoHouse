@@ -68,59 +68,56 @@ public class OrderMapper
             throw new OrderBuilderException(ex.getMessage());
         }
     }
+    
+     public static List<OrderBOM> getAllOrders() throws OrderBuilderException
+    {
+        List<OrderBOM> orderList;
+        try
+        {
+            Connection connection = Connector.connection();
+            String SQL = "SELECT * FROM orders";
+            PreparedStatement statement = connection.prepareStatement(SQL);
 
-//    public static OrderBOM getOrder(User user) throws OrderBuilderException
-//    {
-//        try
-//        {
-//            Connection con = Connector.connection();
-//            String SQL = "SELECT * FROM orders WHERE id = ? ";
-//            PreparedStatement ps = con.prepareStatement(SQL);
-//            ps.setInt(1, user.getId());
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next())
-//            {
-//                int length = rs.getInt("length");
-//                int width = rs.getInt("width");
-//                int height = rs.getInt("height");
-//                boolean sent = rs.getBoolean("sent");
-//
-//                OrderBOM orderBOM = new OrderBOM(height, width, length, sent);
-//                return orderBOM;
-//            } else
-//            {
-//                throw new OrderBuilderException("Could not validate Order");
-//            }
-//        } catch (ClassNotFoundException | SQLException ex)
-//        {
-//            throw new OrderBuilderException(ex.getMessage());
-//        }
-//    }
-//    public static List<Order> getAllOrders() throws LegohouseException {
-//        List<Order> orderList;
-//        try {
-//            Connection connection = Connector.getConnection();
-//            String SQL = "SELECT * FROM `order`";
-//            Statement statement = connection.createStatement();
-//
-//            ResultSet rs = statement.executeQuery(SQL);
-//
-//            orderList = new ArrayList<>();
-//
-//            while (rs.next()) {
-//                int id = rs.getInt("id");
-//                int userId = rs.getInt("userId");
-//                int length = rs.getInt("length");
-//                int width = rs.getInt("width");
-//                int height = rs.getInt("height");
-//                LocalDate receivedDate = rs.getObject("receivedDate", LocalDate.class);
-//                
-//                orderList.add(new Order(id, userId, length, width, height, receivedDate));
-//            }
-//
-//            return orderList;
-//        } catch (Exception ex) {
-//            throw new LegohouseException(ex.getMessage());
-//        }
-//    }
+            ResultSet rs = statement.executeQuery();
+
+            orderList = new ArrayList<>();
+
+            while (rs.next())
+            {
+                int orderid = rs.getInt("orderid");
+                int id = rs.getInt("id");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                boolean sent = rs.getBoolean("sent");
+
+                orderList.add(new OrderBOM(orderid, id, length, width, height, sent));
+            }
+
+            return orderList;
+        } catch (ClassNotFoundException | SQLException ex)
+        {
+            throw new OrderBuilderException(ex.getMessage());
+        }
+    }
+     
+         public static void sentOrder(int id) throws OrderBuilderException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = " SELECT * FROM orders WHERE orderid="+ id + ";";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                
+                String nextSQL = "UPDATE orders SET sent='1' WHERE orderid =" + id + ";";
+                ps.execute(nextSQL);
+                
+            } else {
+                throw new OrderBuilderException("Could not validate Order");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new OrderBuilderException(ex.getMessage());
+        }
+    }
+
 }

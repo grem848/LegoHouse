@@ -7,6 +7,9 @@
         <title>Help Page</title>
     </head>
     <body>
-            <h1>Help is on the way!</h1>
+        <h1>Help is on the way!</h1>
     </body>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
 </html>

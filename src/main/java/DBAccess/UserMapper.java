@@ -17,7 +17,7 @@ public class UserMapper
         try
         {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
@@ -34,7 +34,7 @@ public class UserMapper
         try
         {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM Users "
+            String SQL = "SELECT id, role FROM users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);

@@ -97,4 +97,9 @@
         <input type="hidden" name="command" value="products" />
         <input type="submit" value="Back to Lego House Builder" />
     </form>
+    <form name="Building" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="customer" />
+        <input type="submit" value="Back to Customer Page" />
+    </form>
+    <br>
 </html>
